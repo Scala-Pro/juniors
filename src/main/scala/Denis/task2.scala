@@ -35,12 +35,17 @@ object task2 extends App {
   }
 
   def taskk9(a: String): String = {
-    val q = a.toCharArray().toSet.mkString
+    val q = a.toCharArray.toSet.mkString
     val res = for (i <- q.indices) yield {
         s"${q(i)} - ${a.count(_ == q(i))}"
     }
     res.mkString(", ")
   }
 
+  def taskk10(a: Int): String ={
+    val cZero = a.toString.count(_ == '0')
+    val res = s"${a.toString.replace("0", "")}${"0" * cZero}"
+    res
+  }
 
 }
