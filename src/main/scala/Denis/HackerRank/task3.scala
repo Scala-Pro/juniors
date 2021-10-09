@@ -19,6 +19,8 @@ object task3 extends App {
     }
   }
 
+
+
   def newWord(): Unit = {
     val name = readLine("Enter your name: ")
     val words = List("Car", "Phone", "Sun", "Table", "Desk")
@@ -34,21 +36,17 @@ object task3 extends App {
     words.mkString(", ")
   }
 
-  def dictionary()= {
-    val word = readLine("Enter the word: ")
-    val words = Map("Car" -> "Moshina", "Phone" -> "Telefon", "Sun" -> "Quyosh", "Table" -> "Stol", "Desk" -> "Parta")
-    for (i <- words.keys) {
-      if (words(word) == words(i)) {
-        println(words(word))
-      } else {
-
-      }
-    }
-
-  }
-
-  dictionary()
-
+//  def dictionary()= {
+//    val word = readLine("Enter the word: ")
+//    val words = Map("Car" -> "Moshina", "Phone" -> "Telefon", "Sun" -> "Quyosh", "Table" -> "Stol", "Desk" -> "Parta")
+//    for (i <- words.keys) {
+//      if (words(word) == words(i)) {
+//        println(words(word))
+//      } else {
+//
+//      }
+//    }
+//  }
 
 
 }
