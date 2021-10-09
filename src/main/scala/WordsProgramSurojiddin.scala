@@ -24,4 +24,6 @@ object WordsProgramSurojiddin extends App{
     println("Bunday so'z topilmadi")
   }
 
+
+
 }
