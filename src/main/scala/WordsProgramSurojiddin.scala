@@ -6,36 +6,61 @@ object WordsProgramSurojiddin extends App {
 
   val wordsWithDefinition = List(
     Word("val", "Val bu constanta"),
-    Word("var", "Var bu o'zgaruvchi")
+    Word("var", "Var bu o'zgaruvchi"),
+    Word("map", "map bu ................"),
+    Word("/", "/ bu bo'lish operatiri"),
+    Word("%", "% qoldiqni topish operatori"),
+    Word("for", "for bu sikl aylantirish operatori"),
+    Word("foreach", "foreach bu sikl aylantirish operatori"),
+    Word("function", "function bu def"),
+    Word("method", "method bu method"),
+    Word("list", "list bu bir xil tipdagi elementlar ro'yxati"),
+    Word("readLine", "readLine bu bir qator so'z kiritish"),
+    Word("readInt", "readInt bu intejer son kiritish"),
+    Word("readDouble", "readDouble bu intejer son kiritish"),
+    Word(":+", ":+ bu listga elementni oxirdan qo'shish"),
+    Word("+:", "Var bu o'zgaruvchi"),
+    Word(":::", "Var bu o'zgaruvchi"),
+    Word("::", "Var bu o'zgaruvchi"),
   )
+
+  println(wordsWithDefinition)
+
   val words = List("val", "var", "map", "/", "%", "for", "foreach", "function", "method", "list", "readLine", "readInt", "readDouble", ":+", "+:", ":::", "::")
   val coders = List("Surojiddin", "Navruz", "Og'abek")
-  var knBase = Map.empty[String, List[String]]
+  var knBase = Map.empty[String, List[Word]]
 
-  val k = words.length / coders.length
+  val k = wordsWithDefinition.length / coders.length
 
-  def insertWord(name: String, word: String): Unit =
+  def insertWord(name: String, word: Word): Word = {
     knBase += knBase.get(name).map { words =>
       name -> (word +: words)
     }.getOrElse(name -> List(word))
+    word
+  }
 
   for {
     _ <- 0 until k
     name <- coders
   } {
-    def selectedWord: String = words(scala.util.Random.nextInt(words.length))
+    def selectedWord: Word = wordsWithDefinition(scala.util.Random.nextInt(wordsWithDefinition.length))
 
-    def recursiveTask(newWord: String): String =
+    def recursiveTask(newWord: Word): Word =
       knBase.get(name).map { coderWords =>
         if (coderWords.contains(newWord)) {
           recursiveTask(selectedWord)
         } else {
           insertWord(name, newWord)
-          newWord
         }
       }.getOrElse(newWord)
 
-    println(s"$name - ${recursiveTask(selectedWord)}")
+    val lastWord = recursiveTask(selectedWord)
+
+    println(s"$name - ${lastWord.value}")
+
+    if (readLine() == "d"){
+      println(lastWord.definition)
+    }
 
     readLine()
   }
