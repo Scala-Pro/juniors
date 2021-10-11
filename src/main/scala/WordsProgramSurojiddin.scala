@@ -57,7 +57,7 @@ object WordsProgramSurojiddin extends App {
     val lastWord = recursiveTask(selectedWord)
 
     println(s"$name - ${lastWord.value}")
-
+    // this is test
     if (readLine() == "d"){
       println(lastWord.definition)
     }
