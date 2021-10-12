@@ -58,12 +58,13 @@ object WordsProgramDen extends App {
 
     val input = readLine()
 
+    val curWord = recursiveTask(selectedWord)
     if (input == "d") {
-      println(wordsWithDefinition.map{el =>
-        if (el.value == recursiveTask((selectedWord))) {
+      wordsWithDefinition.foreach{ el =>
+        if (el.value == curWord) {
           println(el.definition)
         }
-      })
+      }
     }
 
   }
