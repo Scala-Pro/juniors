@@ -4,7 +4,7 @@ import scala.io.StdIn
 
 object HRank_Strong_Password {
 
-  def main(args: Array[String]) = {
+  def main(args: Array[String]): Unit = {
 
 
     val n = StdIn.readLine.trim.toInt
