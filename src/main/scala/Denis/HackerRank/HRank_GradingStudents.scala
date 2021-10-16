@@ -20,7 +20,7 @@ object HRank_GradingStudents {
   }
 
   def gradingStudents(grades: Array[Int]): Array[Int] = {
-    var list = new ListBuffer[Int]
+    val list = new ListBuffer[Int]
     for (i <- grades.indices) {
       if (grades(i) < 35) {
         list += grades(i)
