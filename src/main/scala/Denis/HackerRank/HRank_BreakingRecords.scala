@@ -17,15 +17,15 @@ object HRank_BreakingRecords {
 
   def breakingRecords(scores: Array[Int]): Array[Int] = {
     // Write your code here
-    var current = scores(0)
+    var currentHigh = scores(0)
     var currentLow = scores(0)
     var low = 0
     var high = 0
 
     for (i <- scores.indices) {
-      if (scores(i) > current) {
+      if (scores(i) > currentHigh) {
         high += 1
-        current = scores(i)
+        currentHigh = scores(i)
       } else if (scores(i) < currentLow) {
         low += 1
         currentLow = scores(i)
